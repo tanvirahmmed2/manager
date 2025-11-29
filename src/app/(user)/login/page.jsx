@@ -33,7 +33,7 @@ const Login = () => {
       <div className='w-auto p-6 flex flex-col md:flex-row items-center justify-center gap-4 shadow-2xl rounded-3xl'>
         <div className='w-auto flex flex-col items-center justify-center gap-2 p-2'>
           <p className='text-xl font-semibold'>Welcome Back to</p>
-          <h1 className='text-6xl my-2 font-semibold'>Shop</h1>
+          <h1 className='text-3xl my-2 font-semibold'>Monihari</h1>
           <p className='text-center'>Login to your account <br/>enjoy our premium services</p>
           <Link href='/register' className='mx-auto italic text-green-400 text-xs'>register</Link>
         </div>

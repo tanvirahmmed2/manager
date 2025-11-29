@@ -5,7 +5,7 @@ import Footer from "@/components/UI/Footer";
 
 
 export const metadata = {
-  title: "Shop",
+  title: "Monihari",
   description: "E-commerce shop for local business",
 };
 
