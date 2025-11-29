@@ -1,0 +1,114 @@
+import cloudinary from "@/lib/cloudinary";
+import { ConnectDB } from "@/lib/mongoose";
+import Product from "@/models/product";
+import { NextResponse } from "next/server";
+import slugify from "slugify";
+
+export async function POST(req) {
+  try {
+    await ConnectDB();
+
+    const formData = await req.formData();
+
+    const title = formData.get("title");
+    const category = formData.get("category");
+    const description = formData.get("description");
+    const price = formData.get("price");
+    const wholeSalePrice = formData.get("wholeSalePrice");
+    const discount = formData.get("discount");
+    const quantity = formData.get("quantity");
+    const imageFile = formData.get("image"); 
+
+    if (!title || !category || !description || !price || !wholeSalePrice || !quantity) {
+      return NextResponse.json(
+        {
+          success: false,
+          message: "Please fill all required fields",
+        },
+        { status: 400 }
+      );
+    }
+
+    const slug = slugify(title.trim(), { lower: true });
+    
+    const existProduct = await Product.findOne({ slug });
+
+    if (existProduct) {
+      return NextResponse.json(
+        {
+          success: false,
+          message: "Product already exists",
+        },
+        { status: 400 }
+      );
+    }
+
+    if (!imageFile) {
+      return NextResponse.json(
+        {
+          success: false,
+          message: "Please upload an image",
+        },
+        { status: 400 }
+      );
+    }
+
+    
+    const imageBuffer = Buffer.from(await imageFile.arrayBuffer());
+
+    
+    const uploadedImage = await cloudinary.uploader.upload_stream(
+      { folder: "monihari" },
+      (error, result) => {
+        if (error) throw new Error("Cloudinary upload failed");
+      }
+    );
+
+    const uploadPromise = new Promise((resolve, reject) => {
+      const stream = cloudinary.uploader.upload_stream(
+        { folder: "monihari" },
+        (err, result) => {
+          if (err) reject(err);
+          else resolve(result);
+        }
+      );
+      stream.end(imageBuffer);
+    });
+
+    const cloudImage = await uploadPromise;
+
+    
+    const newProduct = new Product({
+      title,
+      category,
+      description,
+      price,
+      wholeSalePrice,
+      discount,
+      quantity,
+      slug,
+      image: cloudImage.secure_url,
+      imageId: cloudImage.public_id,
+    });
+
+    await newProduct.save();
+
+    return NextResponse.json(
+      {
+        success: true,
+        message: "Product added successfully",
+        payload: newProduct,
+      },
+      { status: 201 }
+    );
+  } catch (error) {
+    return NextResponse.json(
+      {
+        success: false,
+        message: "Failed to add product",
+        error: error.message,
+      },
+      { status: 500 }
+    );
+  }
+}

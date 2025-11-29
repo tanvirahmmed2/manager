@@ -1,15 +1,18 @@
+import AdminNav from '@/components/UI/AdminNav'
 import React from 'react'
 
-export const metadata={
-    title:'Admin',
-    description:'Admin Panel'
+export const metadata = {
+  title: 'Admin',
+  description: 'Admin Panel'
 }
 
-const AdminLayout = ({children, orders}) => {
+const AdminLayout = ({ children }) => {
   return (
-    <div className='w-full flex flex-col md:flex-row items-center justify-center p-2'>
-      <div className='w-full'>{children}</div>
-      <div className='w-full'>{orders}</div>
+    <div className='w-full relative'>
+      <AdminNav />
+      <div className='w-full py-16  p-2 min-h-screen'>
+        {children}
+      </div>
     </div>
   )
 }
