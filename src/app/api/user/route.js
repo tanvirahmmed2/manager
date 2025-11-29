@@ -1,30 +1,20 @@
 import { ConnectDB } from "@/lib/mongoose";
-import User from "@/models/user";
 import { NextResponse } from "next/server";
 
-
-
-export async function POST(request) {
+export async function POST(req) {
     try {
         await ConnectDB()
 
-        const { name, email } = await request.json()
+        const { name, email, phone, password } = await req.json()
 
-        const existUser = await User.findOne({ email })
-        if (existUser) {
+        if (!name || !email || !phone || !password) {
             return NextResponse.json({
-                message: 'User already exists'
+                success: false,
+                message: 'All required fields must be filled'
             }, { status: 400 })
         }
-        const newUser = new User({ name, email })
-
-        await newUser.save()
-        return NextResponse.json({
-            message: 'Successfully created new user'
-        }, { status: 200 })
-    } catch (error) {
-        return NextResponse.json({ message: "failed to create new user", error: error }, { status: 500 })
-
+    } catch (e) {
+        return NextResponse.json({ message: 'Failed to register', error: e }, { status: 500 })
     }
 
 }
