@@ -1,3 +1,4 @@
+import DeletedProduct from '@/components/Button/DeletedProduct';
 import AddProduct from '@/components/cards/AddProduct'
 import Link from 'next/link';
 import React from 'react'
@@ -25,10 +26,15 @@ const Products = async () => {
         {
           data !== null ? <div className='w-full flex flex-col items-center justify-center gap-4'>{
             data.map((product) => (
-              <div key={product._id} className='w-1/2 grid grid-cols-3'>
-                <Link href={`/products/${product.slug}`} className=''>{product.title}</Link>
-                <p className='text-end'><span className='text-[10px] italic'>BDT</span> {product.price}</p>
-                <span className='text-end'>...</span>
+              <div key={product._id} className='w-full flex flex-row items-center justify-between bg-gray-200 gap-6'>
+                <Link href={`/products/${product.slug}`} className='w-full'>{product.title}</Link>
+                <p className='px-8 flex flex-row items-center justify-center'><span className='text-[10px] italic'>BDT</span> {product.price}</p>
+                <div className=' flex flex-col gap-2 p-4 items-end'>
+                
+                    <Link className='' href={`/products/update/${product._id}`}>Update</Link>
+                    <DeletedProduct id={product._id} />
+
+                </div>
               </div>
             ))
           }</div> : <p>No data available</p>

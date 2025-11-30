@@ -131,7 +131,7 @@ export async function GET() {
 }
 
 
-export async function DELETE(req) {
+export async function DELETE(req, ) {
   try {
     await ConnectDB()
 
@@ -163,7 +163,8 @@ export async function DELETE(req) {
   } catch (error) {
     return NextResponse.json({
       success: false,
-      message: 'Failed to delete product'
+      message: 'Failed to delete product',
+      error: error.message
     }, { status: 500 })
   }
 

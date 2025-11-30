@@ -1,7 +1,7 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import React from 'react'
-import AddToCart from './AddToCart'
+import AddToCart from '../Button/AddToCart'
 
 const ProductCard = ({ _id, title, slug, price, image }) => {
   return (
