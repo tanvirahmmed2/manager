@@ -3,12 +3,12 @@ import Product from "@/models/product";
 import { NextResponse } from "next/server";
 
 // GET /api/products/[slug]
-export async function GET(request, context) {
+export async function GET(request,{params}) {
   try {
     await ConnectDB();
 
-    const slugParam = context?.params?.slug;
-    const slug = Array.isArray(slugParam) ? slugParam[0] : slugParam;
+    const tempSlug = await params
+    const slug= tempSlug.slug
 
     if (!slug) {
       return NextResponse.json(
