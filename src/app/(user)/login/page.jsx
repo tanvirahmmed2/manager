@@ -9,6 +9,7 @@ const Login = () => {
     password:''
   })
 
+  
   const handleChange= (e)=>{
     const {name, value}= e.target
     setData((prev)=>({...prev, [name]: value}))
@@ -20,6 +21,7 @@ const Login = () => {
     try {
       const response= await axios.post('/api/user/login', data, {withCredentials: true})
       alert(response.data.message)
+      window.location.replace('/profile')
     } catch (error) {
       console.log(error || "Failed to login")
       
