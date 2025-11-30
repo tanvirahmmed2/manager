@@ -65,7 +65,7 @@ const userSchema = new mongoose.Schema({
     role: {
         type: String,
         trim: true,
-        enum: ['buyer', 'seller', 'owner'],
+        enum: ['user', 'seller', 'admin'],
         default: 'buyer'
     },
     joined: {
