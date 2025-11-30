@@ -8,7 +8,7 @@ const ProductCard = ({ _id, title, slug, price, image, unit }) => {
   return (
     <Link
       href={`/products/${slug}`}
-      className="w-full rounded-lg flex flex-col items-center justify-between p-1 border-2 border-black/10"
+      className="w-full rounded-lg flex flex-col items-center justify-between p-1 border-2 border-black/10 gap-2"
     >
       <Image
         src={imgSrc}
@@ -19,11 +19,11 @@ const ProductCard = ({ _id, title, slug, price, image, unit }) => {
       />
       <h1 className="w-full text-sm">{title}</h1>
       <div className="w-full flex flex-row items-center justify-between">
-        <p>
-          <span className="text-[10px] italic">BDT</span>{" "}
+        <p className='flex flex-row gap-2'>
+          <span className="text-[10px] italic">BDT</span>
           <span className="text-2xl font-semibold">{price}</span>
         </p>
-        <p>per {unit}</p>
+        <p className='text-xs'>per {unit}</p>
       </div>
     </Link>
   )

@@ -7,13 +7,24 @@ const Navbar = async () => {
 
   const token = await (await cookies()).get('user_token')?.value
 
+
+
   return (
     <header className='w-full fixed top-0 z-40'>
       <nav className='w-full h-14 bg-black text-white flex flex-row items-center justify-between px-4'>
         <Link href="/" className='text-2xl font-semibold font-sans'>Monihari</Link>
         <div className='flex flex-row items-center justify-center gap-4'>
-          <div>
+          <div className='group w-auto h-14 flex items-center justify-center'>
             <Link className='' href="/products">Products</Link>
+            <div className='hidden group-hover:flex flex-col p-2 shadow-xs shadow-black absolute top-14 text-black rounded-lg gap-2 bg-white'>
+              <Link className='hover:scale-105 w-full' href="/products/category/rice&grains">Rice & Grains</Link>
+              <Link className='hover:scale-105 w-full' href="/products/category/frozenfood">Frozen Food</Link>
+              <Link className='hover:scale-105 w-full' href="/products/category/oil&ghee">Oil & Ghee</Link>
+              <Link className='hover:scale-105 w-full' href="/products/category/masala">Masala</Link>
+              <Link className='hover:scale-105 w-full' href="/products/category/snacks">Snacks</Link>
+              <Link className='hover:scale-105 w-full' href="/products/category/healthcare">Health Care</Link>
+              <Link className='hover:scale-105 w-full' href="/products/category/cleaning&household">Cleaning and Household</Link>
+            </div>
           </div>
           <Link href="/saved">Saved</Link>
           <Link href="/cart">Cart</Link>
