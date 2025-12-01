@@ -3,7 +3,6 @@ import React, { useState } from 'react'
 import axios from 'axios'
 
 
-const unit= ['kg', 'litter', 'dozen', 'gram', 'ml']
 const AddProduct = () => {
     const [data, setData] = useState({
         title: '',
@@ -12,7 +11,7 @@ const AddProduct = () => {
         price: '',
         wholeSalePrice: '',
         quantity: '',
-        unit:'',
+        unit: '',
         image: null
 
     })
@@ -84,10 +83,7 @@ const AddProduct = () => {
             </div>
             <div className='w-full flex flex-col gap-2'>
                 <label htmlFor="unit">Unit</label>
-                <select name="unit" id="unit" required value={data.unit} onChange={handleChange} className='px-2 p-1 border-2 rounded-lg outline-none border-black/15' >
-                    <option value="">--select an option--</option>
-                    {unit.map((e)=>( <option key={e} value={e}>{e}</option>))}
-                </select>
+                <input type="text" name="unit" id="unit" required value={data.unit} onChange={handleChange} placeholder='write the weight or other measures respect to price' className='px-2 p-1 border-2 rounded-lg outline-none border-black/15' />
             </div>
             <div className='w-full flex flex-col gap-2'>
                 <label htmlFor="description">Description</label>

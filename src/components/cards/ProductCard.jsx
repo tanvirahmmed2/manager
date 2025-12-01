@@ -23,7 +23,7 @@ const ProductCard = ({ _id, title, slug, price, image, unit }) => {
           <span className="text-[10px] italic">BDT</span>
           <span className="text-2xl font-semibold">{price}</span>
         </p>
-        <p className='text-xs'>per {unit}</p>
+        <p className='text-xs'>(per {unit})</p>
       </div>
     </Link>
   )
