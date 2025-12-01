@@ -54,9 +54,36 @@ export async function POST(req) {
             }, { status: 400 })
         }
 
-        const cartData= user.cart
+        const productExists = user.cart.find(
+            (item) => item.productId === productId
+        );
 
 
+        if (productExists) {
+            return NextResponse.json(
+                {
+                    success: false,
+                    message: "Product already in cart",
+                },
+                { status: 400 }
+            );
+        }
+
+        const price = product.price * quantity
+
+        user.cart.push({
+            title: product.title,
+            productId: productId,
+            quantity: quantity,
+            price: price
+        })
+
+        await user.save()
+
+        return NextResponse.json({
+            success: true,
+            message: 'Successfully added to cart'
+        }, { status: 200 })
 
 
 

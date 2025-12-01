@@ -80,7 +80,7 @@ const Product = () => {
             <OrderQuantity quantity={{ orderQuantity, setOrderQuantity }} />
             <div className='w-full flex flex-row items-center justify-between gap-2'>
               <SaveProduct id={data._id}/>
-              <AddToCart id={data._id} quantity={orderQuantity} />
+              <AddToCart productId={data._id} quantity={orderQuantity} />
             </div>
 
             <p>{data.description}</p>
