@@ -1,8 +1,14 @@
+'use client'
 import React from 'react'
 
-const AddToCart = () => {
+const AddToCart = (props) => {
+  const {quantity}= props
+
+  const addToCart=()=>{
+    alert(quantity)
+  }
   return (
-    <button className='px-2 p-1 bg-black text-white rounded-lg hover:opacity-80 text-xs'>Add to cart</button>
+    <button onClick={addToCart} className='px-2 p-2 bg-emerald-500 text-white rounded-lg hover:opacity-80 text-xs cursor-pointer'>Add to cart</button>
   )
 }
 

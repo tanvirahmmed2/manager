@@ -12,12 +12,12 @@ const OrderQuantity = ({ quantity }) => {
         }
     }
     return (
-        <div className='flex flex-row gap-4'>
+        <div className='w-full flex flex-row gap-4 items-center justify-between'>
             <p>Quantity</p>
-            <div className=' flex flex-row items-center justify-center gap-2'>
-                <button onClick={decrease} className='px-4 text-white rounded-full bg-gray-600'>-</button>
+            <div className=' flex flex-row items-center justify-center gap-6'>
+                <button onClick={decrease} className='px-4 rounded-full cursor-pointer bg-slate-100'>-</button>
                 <p>{orderQuantity}</p>
-                <button onClick={() => { setOrderQuantity(orderQuantity + 1) }} className='px-4 text-white rounded-full bg-gray-600'>+</button>
+                <button onClick={() => { setOrderQuantity(orderQuantity + 1) }} className='px-4 cursor-pointer rounded-full bg-slate-100'>+</button>
             </div>
         </div>
     )

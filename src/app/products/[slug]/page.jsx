@@ -43,16 +43,18 @@ const Product = () => {
     if (data?.category) fetchCategory()
   }, [data?.category])
 
-  if (!data) return <p>No data found</p>
+  if (!data) return <div className='w-full min-h-screen flex items-center justify-center'>
+    <p>No data found</p>
+  </div>
 
   return (
     <div className='w-full min-h-screen flex flex-col items-center px-2 py-6 gap-4'>
-      <h1>Product Overview</h1>
+      <h1>{data.title} - Overview</h1>
 
-      <div className='flex flex-col items-center gap-4 w-full md:w-3/4'>
+      <div className='flex flex-col items-center gap-4 w-full md:w-3/4 mt-8'>
 
-        <div>
-          <div>
+        <div className='w-full flex flex-col md:flex-row items-center justify-center md:items-start gap-6 md:gap-10'>
+          <div className='w-full flex items-center justify-center'>
             <Image
               src={data.image}
               alt={data.title}
@@ -62,22 +64,21 @@ const Product = () => {
             />
           </div>
 
-          <div>
+
+          <div className='w-full flex flex-col gap-4'>
             <h1 className='text-2xl font-semibold text-center'>{data.title}</h1>
-
-
-
-            <div className='w-full flex flex-row items-start justify-between'>
-              <p className='line-through italic text-red-300'>Old price: {data.oldPrice || 999}</p>
-              <div className='flex flex-row gap-1 items-center justify-center'>
-                <span>Price:</span>
-                <span className='text-xs'>BDT</span>
-                <span>{data.price}</span>
-                <span>/ {data.unit}</span>
-              </div>
-              <OrderQuantity quantity={{ orderQuantity, setOrderQuantity }} />
-              <AddToCart id={data._id} />
+            {data.stock ? <div className='w-full flex flex-row items-center justify-between'>
+              <p>Stock: Available</p>
+              <p>Availble: {data.quantity}</p>
+            </div> : <p>Unavailable</p>}
+            <p className='line-through text-xs text-red-300'>Old price: {data.oldPrice || 999}</p>
+            <div className='flex flex-row gap-1 w-full items-center justify-between'>
+              <p>Price: BDT {data.price}</p>
+              <span>Weight: {data.unit}</span>
             </div>
+            <OrderQuantity quantity={{ orderQuantity, setOrderQuantity }} />
+            <AddToCart id={data._id} quantity={orderQuantity} />
+
             <p>{data.description}</p>
 
           </div>
