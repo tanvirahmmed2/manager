@@ -44,7 +44,7 @@ const Saved = () => {
                 <Link href={`/products/${product.slug}`} >{product.title}</Link>
                 <p>{product.price}</p>
                 <OrderQuantity quantity={{ orderQuantity, setOrderQuantity }}/>
-                <AddToCart productId={data._id} quantity={orderQuantity}/>
+                <AddToCart productId={product._id} quantity={orderQuantity}/>
                 <RemoveFromSave productId={product.productId}/>
               </div>
             ))

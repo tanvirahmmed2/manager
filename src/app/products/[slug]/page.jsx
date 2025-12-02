@@ -77,10 +77,10 @@ const Product = () => {
               <p>Price: BDT {data.price}</p>
               <span>Weight: {data.unit}</span>
             </div>
-            <p className='w-full flex flex-row items-center justify-between'>
+            <span className='w-full flex flex-row items-center justify-between'>
               Quantity:
               <OrderQuantity quantity={{ orderQuantity, setOrderQuantity }} />
-            </p>
+            </span>
             <div className='w-full flex flex-row items-center justify-between gap-2'>
               <SaveProduct productId={data._id}/>
               <AddToCart productId={data._id} quantity={orderQuantity} />
