@@ -72,9 +72,9 @@ const Product = () => {
               <p>Stock: Available</p>
               <p>In stock: {data.quantity}</p>
             </div> : <p>Unavailable</p>}
-            <p className='line-through text-xs text-red-300'>Old price: {data.oldPrice || 999}</p>
+            <p className=' text-xs text-red-300'>Discount: {data.discount}</p>
             <div className='flex flex-row gap-1 w-full items-center justify-between'>
-              <p>Price: BDT {data.price}</p>
+              <p>Price: BDT <span className='text[10px] line-through'>{data.oldPrice}</span> {data.price}</p>
               <span>Weight: {data.unit}</span>
             </div>
             <span className='w-full flex flex-row items-center justify-between'>

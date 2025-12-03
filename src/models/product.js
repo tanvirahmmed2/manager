@@ -37,14 +37,14 @@ const productSchema = new mongoose.Schema({
     },
     oldPrice: {
         type: Number,
-        default: null
+        default: 0
     },
     wholeSalePrice: {
         type: Number,
     },
     discount: {
         type: Number,
-        default: null
+        default: 0
     },
     quantity: {
         type: Number,

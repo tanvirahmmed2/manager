@@ -54,6 +54,10 @@ export async function POST(req) {
       );
     }
 
+    const newPrice= price - discount
+
+
+
 
     const imageBuffer = Buffer.from(await imageFile.arrayBuffer());
 
@@ -73,7 +77,8 @@ export async function POST(req) {
       title,
       category,
       description,
-      price,
+      price: newPrice,
+      oldPrice: price,
       wholeSalePrice,
       discount,
       quantity,
@@ -170,4 +175,69 @@ export async function DELETE(req) {
     }, { status: 500 })
   }
 
+}
+
+
+export async function PATCH(req) {
+  try {
+    await ConnectDB();
+
+    const {_id, title, category, description,  quantity,unit, discount, oldPrice }= await req.json()
+    if (!title || !category || !description || !oldPrice || !quantity || !unit) {
+      return NextResponse.json(
+        {
+          success: false,
+          message: "Please fill all required fields",
+        },
+        { status: 400 }
+      );
+    }
+
+    const slug = slugify(title.trim(), { lower: true });
+
+    const product = await Product.findById(_id)
+
+    if (!product) {
+      return NextResponse.json(
+        {
+          success: false,
+          message: "Product not found",
+        },
+        { status: 400 }
+      );
+    }
+    const newPrice= oldPrice - discount
+
+    product.title= title
+    product.category= category
+    product.description= description
+    product.slug= slug
+    product.discount= discount
+    product.oldPrice= price
+    product.price= newPrice
+    product.quantity= quantity
+    product.unit= unit
+
+
+    await product.save()
+
+
+    return NextResponse.json(
+      {
+        success: true,
+        message: "Product added successfully",
+        payload: product,
+      },
+      { status: 201 }
+    );
+  } catch (error) {
+    return NextResponse.json(
+      {
+        success: false,
+        message: "Failed to add product",
+        error: error.message,
+      },
+      { status: 500 }
+    );
+  }
 }

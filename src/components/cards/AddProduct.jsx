@@ -12,6 +12,7 @@ const AddProduct = () => {
         wholeSalePrice: '',
         quantity: '',
         unit: '',
+        discount:'',
         image: null
 
     })
@@ -107,6 +108,10 @@ const AddProduct = () => {
             <div className='w-full flex flex-col gap-2'>
                 <label htmlFor="wholeSalePrice">WholeSale Price</label>
                 <input type="number" id='wholeSalePrice' name='wholeSalePrice' required value={data.wholeSalePrice} onChange={handleChange} className='px-2 p-1 border-2 rounded-lg outline-none border-black/15' />
+            </div>
+            <div className='w-full flex flex-col gap-2'>
+                <label htmlFor="discount">Discount</label>
+                <input type="number" id='discount' name='discount' min={0} required value={data.wholeSalePrice} onChange={handleChange} className='px-2 p-1 border-2 rounded-lg outline-none border-black/15' />
             </div>
             <div className='w-full flex flex-col gap-2'>
                 <label htmlFor="quantity">Quantity</label>
