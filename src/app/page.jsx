@@ -1,11 +1,11 @@
 import React from 'react'
 
-const MainPage = () => {
+const Main = () => {
   return (
-    <div>
-      
+    <div className='w-full text-4xl font-semibold bg-black'>
+      Hello
     </div>
   )
 }
 
-export default MainPage
+export default Main

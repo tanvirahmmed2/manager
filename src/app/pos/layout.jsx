@@ -1,11 +1,11 @@
 import React from 'react'
 
-const POSLayout = async({children}) => {
+const PosLayout = ({children}) => {
   return (
-    <div>
+    <div className='w-full bg-black'>
       {children}
     </div>
   )
 }
 
-export default POSLayout
+export default PosLayout

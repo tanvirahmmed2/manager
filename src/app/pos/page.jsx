@@ -1,11 +1,11 @@
 import React from 'react'
 
-const POSPage = () => {
+const PosPage = () => {
   return (
     <div>
-      POS
+      Pos
     </div>
   )
 }
 
-export default POSPage
+export default PosPage
