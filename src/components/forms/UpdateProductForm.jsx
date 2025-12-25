@@ -67,7 +67,7 @@ const UpdateProductForm = ({ product }) => {
                     <p>Status</p>
                     <p>{product.isAvailable ? <span className='text-white p-1 px-3 rounded-lg bg-green-500'>Available</span> : <span className='text-white p-1 px-3 rounded-lg bg-red-500'>Unavailable</span>}</p>
                 </div>
-                <button onClick={changeStatus} className='text-xl cursor-pointer'>{product.isAvailable ?<CgUnavailable/>:  <MdOutlineEventAvailable/>  }</button>
+                <button onClick={changeStatus} className='text-xl cursor-pointer flex flex-row items-center gap-2'>Change {product.isAvailable ?<CgUnavailable/>:  <MdOutlineEventAvailable/>  }</button>
             </div>
         </div>
     )

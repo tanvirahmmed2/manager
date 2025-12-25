@@ -26,7 +26,9 @@ const UserAddtoCart = ({ product }) => {
 
   return (
     <div className='w-full flex flex-col items-center justify-center gap-2'>
+      
       <div className='w-full flex flex-row items-center justify-between'>
+        
         <div className='w-full'>
           <p>Price: <span className='text-[8px] italic'>BDT</span> <span className='text-xl font-semibold'>{product.price}</span></p>
         </div>

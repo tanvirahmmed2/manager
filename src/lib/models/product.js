@@ -45,7 +45,7 @@ const productSchema = new mongoose.Schema({
         type: Boolean,
         default: true
     },
-    discoutn: {
+    discount: {
         type: Number,
         trim: true
     },
