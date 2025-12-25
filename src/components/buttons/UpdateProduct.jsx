@@ -4,10 +4,10 @@ import React from 'react'
 
 import { FaEdit } from "react-icons/fa";
 
-const UpdateProduct = ({id}) => {
+const UpdateProduct = ({slug}) => {
     
   return (
-    <Link href={`/manage/products/${id}`}><FaEdit/></Link>
+    <Link href={`/manage/products/${slug}`}><FaEdit/></Link>
   )
 }
 

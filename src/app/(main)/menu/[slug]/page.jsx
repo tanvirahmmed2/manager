@@ -21,8 +21,7 @@ const SingleProduct = async ({ params }) => {
       <div className='flex-1 flex flex-col gap-4'>
         <h1 className='text-2xl font-semibold'>{product.title}</h1>
         <p>{product.description}</p>
-        <p className='flex flex-row gap-4 items-center'>Price : <span className='flex flex-row gap-2 items-center'><span className='text-[8px] italic'>BDT</span>{product.price}</span></p>
-        <UserAddtoCart/>
+        <UserAddtoCart product={product}/>
       </div>
      </div>
     </div>

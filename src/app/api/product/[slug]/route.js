@@ -1,12 +1,13 @@
 import ConnectDB from "@/lib/database/mongo";
 import Product from "@/lib/models/product";
 import { NextResponse } from "next/server";
+import slugify from "slugify";
 
 
 export async function GET(req, { params }) {
     try {
         await ConnectDB()
-        const {slug} = await params
+        const { slug } = await params
 
         if (!slug) {
             return NextResponse.json({
@@ -15,7 +16,7 @@ export async function GET(req, { params }) {
             }, { status: 400 })
         }
 
-        const product = await Product.findOne({slug})
+        const product = await Product.findOne({ slug })
 
         if (!product) {
             return NextResponse.json({
@@ -39,3 +40,5 @@ export async function GET(req, { params }) {
     }
 
 }
+
+

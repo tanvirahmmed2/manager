@@ -31,7 +31,7 @@ const Products = async () => {
               <p>{product.price}</p>
               <p>{product.isAvailable ? 'Available' : "Unavailable"}</p>
               <div className='w-full flex flex-row gap-4 items-center'>
-                <UpdateProduct id={product._id} />
+                <UpdateProduct slug={product.slug} />
                 <DeleteProduct id={product._id} />
               </div>
 
