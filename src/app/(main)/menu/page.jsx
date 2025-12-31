@@ -61,7 +61,7 @@ const Menu = () => {
           {filteredData.length > 0 ? (
             filteredData.map((item) => (
 
-              <Link key={item._id} href={`/menu/${item.slug}`} className="w-full flex flex-col items-center justify-center p-1 border border-black/10 rounded-lg overflow-hidden">
+              <Link key={item._id} href={`/menu/${item.slug}`} className="w-full bg-white/40 flex flex-col items-center justify-center p-1 border border-black/10 rounded-lg overflow-hidden">
                 <Image src={item.image} alt={item.title} width={1000} height={1000} className="w-full rounded-lg overflow-hidden" />
                 <div className="w-full flex flex-row items-start justify-between gap-2 py-3">
                   <h1 className="text-xs">{item.title}</h1>
