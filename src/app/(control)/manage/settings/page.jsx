@@ -1,7 +1,9 @@
 'use client'
 import { useCart } from '@/components/context/Context'
 import WebsiteDetails from '@/components/forms/WebsiteDetails'
+import axios from 'axios'
 import React, { useState } from 'react'
+import { toast } from 'react-toastify'
 
 const Setting = () => {
   const { siteData } = useCart()
@@ -26,10 +28,11 @@ const Setting = () => {
   const changeTitle = async (e) => {
     e.preventDefault()
     try {
-      console.log(formData.title)
+      const response= await axios.post('/api/website/title', {id:formData.id, title:formData.title}, {withCredentials:true})
+      toast.success(response.data.message)
     } catch (error) {
       console.log(error)
-
+      toast.error(error?.response?.data?.message || 'Failed to perform action')
     }
   }
 
