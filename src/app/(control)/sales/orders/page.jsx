@@ -46,7 +46,7 @@ const Orders = async() => {
               </div>
             </div>
             <div className='w-full flex flex-row items-center justify-between gap-2'>
-              <PrintOrder id={order._id}/>
+              <PrintOrder order={order}/>
               <DeliverOrder id={order._id}/>
               <CancelOrder id={order._id}/>
               <DeleteOrder id={order._id}/>
