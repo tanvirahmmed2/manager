@@ -50,7 +50,7 @@ const Reservation = async () => {
                 
 
               </div>
-              <p className='w-full text-center text-red-500'>{info.status}</p>
+              <p className={`w-full text-center ${info.status==='pending'? 'text-red-600': 'text-green-500'}`}>{info.status}</p>
             </div>
           </div>
         ))}
