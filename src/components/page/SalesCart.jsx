@@ -2,7 +2,7 @@
 import React from 'react'
 
 import Orderform from '../forms/Orderform'
-import { useCart } from '../context/CartContext'
+import { useCart } from '../context/Context'
 
 const SalesCart = () => {
 const { cartItems, fetchCart } = useCart()

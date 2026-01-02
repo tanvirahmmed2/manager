@@ -1,5 +1,5 @@
 
-import { CartProvider } from "@/components/context/CartContext"
+import { CartProvider } from "@/components/context/Context"
 import SalesCart from "@/components/page/SalesCart"
 import SalesNavbar from "@/components/ui/SalesNavbar"
 import SalesSidebar from "@/components/ui/SalesSidebar"
@@ -20,13 +20,11 @@ const PosLayout = async ({ children }) => {
   return (
     <div className='w-full flex flex-col'>
       <SalesNavbar />
-      <CartProvider>
         <div className=" flex flex-row w-full  justify-between">
           <SalesSidebar />
           {children}
           <SalesCart />
         </div>
-      </CartProvider>
 
     </div>
   )

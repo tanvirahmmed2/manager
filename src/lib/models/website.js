@@ -5,22 +5,43 @@ const websiteSchema = new mongoose.Schema({
     title: {
         type: String,
         trim: true,
-        default: 'WebSite'
+        default: 'WebSite',
+        required:true
     },
     address: {
         type: String,
         trim: true,
-        default: 'Dhaka'
+        required:true
     },
     tagline: {
         type: String,
         trim: true,
-        default: 'Dhaka'
+        required:true
     },
     socialLink: {
         type: String,
         trim: true,
-        default: 'Dhaka'
+        required:true
+    },
+    tax: {
+        type: Number,
+        trim: true,
+        required:true
+    },
+    openFrom: {
+        type: String,
+        trim: true,
+        required:true
+    },
+    openTo: {
+        type: String,
+        trim: true,
+        required:true
+    },
+    bio: {
+        type: String,
+        trim: true,
+        required:true
     },
 })
 

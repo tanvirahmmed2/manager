@@ -1,13 +1,13 @@
-// context/CartContext.jsx
+// context/Context.jsx
 'use client'
 import { createContext, useContext, useState, useEffect } from 'react'
 import axios from 'axios'
 
-const CartContext = createContext()
+const Context = createContext()
 
-export const CartProvider = ({ children }) => {
+export const ContextProvider = ({ children }) => {
   const [cartItems, setCartItems] = useState([])
-  const [siteData, setSiteData] = useState([])
+  const [siteData, setSiteData] = useState(null)
 
   const fetchCart = async () => {
     try {
@@ -30,9 +30,10 @@ export const CartProvider = ({ children }) => {
       try {
         const response = await axios.get('/api/website', { withCredentials: true })
         setSiteData(response.data.payload)
+        console.log(response)
       } catch (error) {
         console.log(error)
-        setSiteData([])
+        setSiteData(null)
 
       }
 
@@ -45,10 +46,10 @@ export const CartProvider = ({ children }) => {
   useEffect(() => { fetchCart() }, [])
 
   return (
-    <CartContext.Provider value={{ cartItems, fetchCart, siteData }}>
+    <Context.Provider value={{ cartItems, fetchCart, siteData }}>
       {children}
-    </CartContext.Provider>
+    </Context.Provider>
   )
 }
 
-export const useCart = () => useContext(CartContext)
+export const useCart = () => useContext(Context)

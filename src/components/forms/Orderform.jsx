@@ -2,7 +2,7 @@
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import RemoveFromCart from '../buttons/RemoveFromCart'
-import { useCart } from '../context/CartContext'
+import { useCart } from '../context/Context'
 import { toast } from 'react-toastify'
 
 const Orderform = ({ cartItems }) => {

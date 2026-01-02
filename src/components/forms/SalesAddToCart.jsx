@@ -3,7 +3,7 @@ import axios from 'axios'
 import Image from 'next/image'
 import React from 'react'
 import { toast } from 'react-toastify'
-import { useCart } from '../context/CartContext'
+import { useCart } from '../context/Context'
 import Item from '../card/Item'
 
 const SalesAddToCart = ({ product }) => {
