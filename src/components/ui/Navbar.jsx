@@ -8,8 +8,10 @@ import { FaBars } from "react-icons/fa";
 import { RxCross2 } from "react-icons/rx";
 import Logout from '../buttons/Logout'
 import axios from 'axios'
+import { useCart } from '../context/Context'
 
 const Navbar = () => {
+  const {siteData}= useCart()
   const [isSidebar, setIsSidebar] = useState(false)
   const [isLogin, setIsLogin] = useState(false)
   const [role, setRole] = useState('')
@@ -35,7 +37,7 @@ const Navbar = () => {
   return (
     <div className='w-full fixed top-0 z-50'>
       <div className='w-full flex flex-row items-center justify-between h-14 px-4 bg-sky-600 text-white'>
-        <Link href={'/'} className='text-2xl '>Grand Kitchen</Link>
+        <Link href={'/'} className='text-2xl '>{siteData?.title|| 'Grand Kitchen'}</Link>
         <div>
 
         </div>
