@@ -14,6 +14,7 @@ import { SiGoogleanalytics } from "react-icons/si";
 import { FaRegMessage } from "react-icons/fa6";
 import { MdOutlineLocalOffer } from "react-icons/md";
 import { RiGlobalLine } from "react-icons/ri";
+import Logout from '../buttons/Logout';
 
 const ManageSidebar = () => {
   return (
@@ -34,7 +35,7 @@ const ManageSidebar = () => {
         <Link href={'/'} className='w-auto flex flex-row items-center gap-3 cursor-pointer'><RiGlobalLine/>Website</Link>
         <Link href={'/manage/settings'} className='w-auto flex flex-row items-center gap-3 cursor-pointer'><IoSettingsOutline/>Setting</Link>
         <Link href={'/profile'} className='w-auto flex flex-row items-center gap-3 cursor-pointer'><PiFinnTheHumanLight/> Profile</Link>
-        <button className='w-auto flex flex-row items-center gap-3 cursor-pointer'><CiLogout/> Logout</button>
+        <button className='w-auto flex flex-row items-center gap-3 cursor-pointer'><CiLogout/> <Logout/></button>
 
       </div>
     </div>
