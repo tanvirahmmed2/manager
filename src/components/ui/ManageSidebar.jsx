@@ -27,7 +27,6 @@ const ManageSidebar = () => {
         <Link href={'/manage/products'} className='w-auto flex flex-row items-center gap-3 cursor-pointer'><FaRegEdit/> Products</Link>
         <Link href={'/manage/people'} className='w-auto flex flex-row items-center gap-3 cursor-pointer'><MdManageAccounts/> People</Link>
         <Link href={'/manage/analytics'} className='w-auto flex flex-row items-center gap-3 cursor-pointer'><SiGoogleanalytics/> Analytics</Link>
-        <Link href={'/manage/reservation'} className='w-auto flex flex-row items-center gap-3 cursor-pointer'><FaRegMessage/>Reservation</Link>
         <Link href={'/manage/support'} className='w-auto flex flex-row items-center gap-3 cursor-pointer'><FaRegMessage/> Support</Link>
       </div>
 

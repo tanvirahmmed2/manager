@@ -44,7 +44,6 @@ const Navbar = () => {
         <div className='w-auto h-full hidden md:flex flex-row items-center justify-center gap-2'>
           <Link href={'/'}>Home</Link>
           <Link href={'/menu'}>Menu</Link>
-            <Link href={'/reservation'}>Book</Link>
           {role === 'manager' && <Link href={'/manage'}>Manage</Link>}
           {role === 'sales' && <Link href={'/sales'}>Sales</Link>}
           {

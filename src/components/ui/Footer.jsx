@@ -6,7 +6,6 @@ const Footer = () => {
     <div className='w-full p-4 bg-blue-50 border-t-2 border-black/10 flex flex-col items-center justify-center gap-4'>
       <div className='w-full flex flex-row items-center justify-center gap-4'>
         <Link href={'/support'}>Support</Link>
-        <Link href={'/reservation'}>Reservation</Link>
 
       </div>
 

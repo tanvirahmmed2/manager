@@ -9,7 +9,6 @@ const Sidebar = ({ isSidebar, setIsSidebar, isLogin, role }) => {
             <Link href={'/'} onClick={() => setIsSidebar(false)}>Home</Link>
             <Link href={'/menu'} onClick={() => setIsSidebar(false)}>Menu</Link>
             <Link href={'/support'}>Support</Link>
-            <Link href={'/reservation'}>Reservation</Link>
             {role === 'manager' && <Link href={'/manage'} onClick={() => setIsSidebar(false)}>Manage</Link>}
             {role === 'sales' && <Link href={'/sales'} onClick={() => setIsSidebar(false)}>Sales</Link>}
             {
