@@ -17,6 +17,11 @@ const productSchema = new mongoose.Schema({
         type: String,
         required: true
     },
+    wholeSale: {
+        type: Number,
+        required: true,
+        trim: true
+    },
     price: {
         type: Number,
         required: true,
@@ -41,14 +46,27 @@ const productSchema = new mongoose.Schema({
             message: '{VALUE} is not supported'
         }
     },
+    stock: {
+        type: Boolean,
+        default: true
+    },
+    quantity: {
+        type: Number,
+        trim: true,
+        default: 1
+    },
     isAvailable: {
         type: Boolean,
         default: true
     },
+    isFeatured: {
+        type: Boolean,
+        default: false
+    },
     discount: {
         type: Number,
         trim: true,
-        default:0
+        default: 0
     },
     createdAt: {
         type: Date,
