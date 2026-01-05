@@ -40,16 +40,16 @@ const categories = [
 
 
 const AddProduct = () => {
-    const {siteData}= useCart()
+    const { siteData } = useCart()
     const [formData, setFormData] = useState({
         title: '',
         description: '',
         price: '',
-        unit:'',
+        unit: '',
         category: '',
         image: null,
-        wholeSalePrice:'',
-        quantity:'',
+        wholeSalePrice: '',
+        quantity: '',
 
 
     })
@@ -82,14 +82,17 @@ const AddProduct = () => {
                 title: '',
                 description: '',
                 price: '',
+                unit: '',
                 category: '',
                 image: null,
+                wholeSalePrice: '',
+                quantity: '',
 
             })
 
         } catch (error) {
             console.log(error)
-           toast.error(error?.response?.data?.message || 'Failed to add product')
+            toast.error(error?.response?.data?.message || 'Failed to add product')
         }
 
     }
@@ -115,7 +118,7 @@ const AddProduct = () => {
             </div>
             <div className='w-full flex flex-col gap-2'>
                 <label htmlFor="unit">Unit</label>
-                <input type="text" name='unit' id='unit' min={0} required value={formData.unit} onChange={handleChange} className='w-full p-1 px-3 outline-none border-2 border-black/10 rounded-lg shadow-sm' />
+                <input type="text" name='unit' id='unit' required value={formData.unit} onChange={handleChange} className='w-full p-1 px-3 outline-none border-2 border-black/10 rounded-lg shadow-sm' />
             </div>
             <div className='w-full flex flex-col gap-2'>
                 <label htmlFor="price">Price</label>

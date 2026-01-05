@@ -36,11 +36,9 @@ const Navbar = () => {
 
   return (
     <div className='w-full fixed top-0 z-50'>
-      <div className='w-full flex flex-row items-center justify-between h-14 px-4 bg-red-400 text-white'>
+      <div className='w-full flex flex-row items-center justify-between md:justify-around h-14 px-4 bg-red-400 text-white'>
         <Link href={'/'} className='text-2xl font-semibold '>{siteData?.title|| 'Business'}</Link>
-        <div>
-
-        </div>
+       
         <div className='w-auto h-full hidden md:flex flex-row items-center justify-center gap-2'>
           <Link href={'/'}>Home</Link>
           <Link href={'/products'}>Products</Link>
