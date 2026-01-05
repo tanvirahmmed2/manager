@@ -4,6 +4,7 @@ import WebsiteDetails from '@/components/forms/WebsiteDetails'
 import axios from 'axios'
 import React, { useState } from 'react'
 import { toast } from 'react-toastify'
+import { MdOutlineSystemUpdateAlt } from "react-icons/md";
 
 const Setting = () => {
   const { siteData } = useCart()
@@ -17,7 +18,9 @@ const Setting = () => {
     tax: siteData?.tax || '',
     openFrom: siteData?.openFrom || '',
     openTo: siteData?.openTo || '',
-    bio: siteData?.bio || ''
+    bio: siteData?.bio || '',
+    hotline: siteData?.hotline || '',
+    categories: siteData?.categories || '',
   })
 
   const handleChange = (e) => {
@@ -107,6 +110,26 @@ const Setting = () => {
       toast.error(error?.response?.data?.message || 'Failed to perform action')
     }
   }
+  const changeHotline = async (e) => {
+    e.preventDefault()
+    try {
+      const response= await axios.post('/api/website/hotline', {id:formData.id, hotline:formData.hotline}, {withCredentials:true})
+      toast.success(response.data.message)
+    } catch (error) {
+      console.log(error)
+      toast.error(error?.response?.data?.message || 'Failed to perform action')
+    }
+  }
+  const changeCategory = async (e) => {
+    e.preventDefault()
+    try {
+      const response= await axios.post('/api/website/categories', {id:formData.id, categories:formData.categories}, {withCredentials:true})
+      toast.success(response.data.message)
+    } catch (error) {
+      console.log(error)
+      toast.error(error?.response?.data?.message || 'Failed to perform action')
+    }
+  }
 
   if (siteData === null) return <WebsiteDetails />
 
@@ -118,7 +141,7 @@ const Setting = () => {
         <label htmlFor="title">Title</label>
         <div className='w-full flex flex-row items-center justify-between gap-4'>
           <input type="text" required value={formData.title} id='title' name='title' onChange={handleChange} className='w-full p-1 px-3 border outline-none rounded-lg' />
-          <button type='submit' className='px-4 p-1 bg-black text-center rounded-lg hover:scale-[1.02] transform ease-in-out duration-500 cursor-pointer text-white'>Change</button>
+          <button type='submit' className='px-4 p-1 bg-black text-center rounded-lg hover:scale-[1.02] transform ease-in-out duration-500 cursor-pointer text-white'><MdOutlineSystemUpdateAlt/></button>
         </div>
       </form>
 
@@ -126,49 +149,63 @@ const Setting = () => {
         <label htmlFor="bio">Bio</label>
         <div className='w-full flex flex-row items-center justify-between gap-4'>
           <input type="text" required value={formData.bio} id='bio' name='bio' onChange={handleChange} className='w-full p-1 px-3 border outline-none rounded-lg' />
-          <button type='submit' className='px-4 p-1 bg-black text-center rounded-lg hover:scale-[1.02] transform ease-in-out duration-500 cursor-pointer text-white'>Change</button>
+          <button type='submit' className='px-4 p-1 bg-black text-center rounded-lg hover:scale-[1.02] transform ease-in-out duration-500 cursor-pointer text-white'><MdOutlineSystemUpdateAlt/></button>
         </div>
       </form>
       <form onSubmit={changeTagline} className='w-full flex flex-col gap-2'>
         <label htmlFor="tagline">Tagline</label>
         <div className='w-full flex flex-row items-center justify-between gap-4'>
           <input type="text" required value={formData.tagline} id='tagline' name='tagline' onChange={handleChange} className='w-full p-1 px-3 border outline-none rounded-lg' />
-          <button type='submit' className='px-4 p-1 bg-black text-center rounded-lg hover:scale-[1.02] transform ease-in-out duration-500 cursor-pointer text-white'>Change</button>
+          <button type='submit' className='px-4 p-1 bg-black text-center rounded-lg hover:scale-[1.02] transform ease-in-out duration-500 cursor-pointer text-white'><MdOutlineSystemUpdateAlt/></button>
         </div>
       </form>
       <form onSubmit={changeAddress} className='w-full flex flex-col gap-2'>
         <label htmlFor="address">Address</label>
         <div className='w-full flex flex-row items-center justify-between gap-4'>
           <input type="text" required value={formData.address} id='address' name='address' onChange={handleChange} className='w-full p-1 px-3 border outline-none rounded-lg' />
-          <button type='submit' className='px-4 p-1 bg-black text-center rounded-lg hover:scale-[1.02] transform ease-in-out duration-500 cursor-pointer text-white'>Change</button>
+          <button type='submit' className='px-4 p-1 bg-black text-center rounded-lg hover:scale-[1.02] transform ease-in-out duration-500 cursor-pointer text-white'><MdOutlineSystemUpdateAlt/></button>
         </div>
       </form>
       <form onSubmit={changeTax} className='w-full flex flex-col gap-2'>
         <label htmlFor="tax">Tax</label>
         <div className='w-full flex flex-row items-center justify-between gap-4'>
           <input type="number" required value={formData.tax} id='tax' name='tax' onChange={handleChange} className='w-full p-1 px-3 border outline-none rounded-lg' />
-          <button type='submit' className='px-4 p-1 bg-black text-center rounded-lg hover:scale-[1.02] transform ease-in-out duration-500 cursor-pointer text-white'>Change</button>
+          <button type='submit' className='px-4 p-1 bg-black text-center rounded-lg hover:scale-[1.02] transform ease-in-out duration-500 cursor-pointer text-white'><MdOutlineSystemUpdateAlt/></button>
         </div>
       </form>
       <form onSubmit={changeOpenFrom} className='w-full flex flex-col gap-2'>
         <label htmlFor="openFrom">Open Time</label>
         <div className='w-full flex flex-row items-center justify-between gap-4'>
           <input type="text" required value={formData.openFrom} id='openFrom' name='openFrom' onChange={handleChange} className='w-full p-1 px-3 border outline-none rounded-lg' />
-          <button type='submit' className='px-4 p-1 bg-black text-center rounded-lg hover:scale-[1.02] transform ease-in-out duration-500 cursor-pointer text-white'>Change</button>
+          <button type='submit' className='px-4 p-1 bg-black text-center rounded-lg hover:scale-[1.02] transform ease-in-out duration-500 cursor-pointer text-white'><MdOutlineSystemUpdateAlt/></button>
         </div>
       </form>
       <form onSubmit={changeOpenTo} className='w-full flex flex-col gap-2'>
         <label htmlFor="openTo">Open Till</label>
         <div className='w-full flex flex-row items-center justify-between gap-4'>
           <input type="text" required value={formData.openTo} id='openTo' name='openTo' onChange={handleChange} className='w-full p-1 px-3 border outline-none rounded-lg' />
-          <button type='submit' className='px-4 p-1 bg-black text-center rounded-lg hover:scale-[1.02] transform ease-in-out duration-500 cursor-pointer text-white'>Change</button>
+          <button type='submit' className='px-4 p-1 bg-black text-center rounded-lg hover:scale-[1.02] transform ease-in-out duration-500 cursor-pointer text-white'><MdOutlineSystemUpdateAlt/></button>
         </div>
       </form>
       <form onSubmit={changeSocialLink} className='w-full flex flex-col gap-2'>
         <label htmlFor="socialLink">Social Link</label>
         <div className='w-full flex flex-row items-center justify-between gap-4'>
           <input type="text" required value={formData.socialLink} id='socialLink' name='socialLink' onChange={handleChange} className='w-full p-1 px-3 border outline-none rounded-lg' />
-          <button type='submit' className='px-4 p-1 bg-black text-center rounded-lg hover:scale-[1.02] transform ease-in-out duration-500 cursor-pointer text-white'>Change</button>
+          <button type='submit' className='px-4 p-1 bg-black text-center rounded-lg hover:scale-[1.02] transform ease-in-out duration-500 cursor-pointer text-white'><MdOutlineSystemUpdateAlt/></button>
+        </div>
+      </form>
+      <form onSubmit={changeHotline} className='w-full flex flex-col gap-2'>
+        <label htmlFor="hotline">Hotline</label>
+        <div className='w-full flex flex-row items-center justify-between gap-4'>
+          <input type="text" required value={formData.hotline} id='hotline' name='hotline' onChange={handleChange} className='w-full p-1 px-3 border outline-none rounded-lg' />
+          <button type='submit' className='px-4 p-1 bg-black text-center rounded-lg hover:scale-[1.02] transform ease-in-out duration-500 cursor-pointer text-white'><MdOutlineSystemUpdateAlt/></button>
+        </div>
+      </form>
+      <form onSubmit={changeCategory} className='w-full flex flex-col gap-2'>
+        <label htmlFor="categories">Categories</label>
+        <div className='w-full flex flex-row items-center justify-between gap-4'>
+          <input type="text" required value={formData.categories} id='categories' name='categories' onChange={handleChange} className='w-full p-1 px-3 border outline-none rounded-lg' />
+          <button type='submit' className='px-4 p-1 bg-black text-center rounded-lg hover:scale-[1.02] transform ease-in-out duration-500 cursor-pointer text-white'><MdOutlineSystemUpdateAlt/></button>
         </div>
       </form>
 
