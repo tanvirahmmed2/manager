@@ -34,8 +34,8 @@ const Support = () => {
   return (
     <div className='w-full min-h-screen p-4 flex flex-col md:flex-row items-center justify-center gap-6'>
       <div className='w-full h-full flex flex-col gap-4'>
-        <h1 className='text-2xl font-semibold text-center'>Join Us at Our Table</h1>
-        <p className='text-wrap w-full text-center'>Whether you are planning a romantic evening, a family celebration, or a private event, we are here to make it unforgettable.</p>
+        <h1 className='text-2xl font-semibold text-center'>{siteData?.tagline}</h1>
+        <p className='text-wrap w-full text-center'>{siteData?.bio}</p>
         <p className=' text-center'>Address: {siteData?.address || 'Mymensingh'}</p>
 
       </div>
@@ -58,7 +58,7 @@ const Support = () => {
             <label htmlFor="message">Message</label>
             <textarea name="message" id="message" required onChange={handleChange} value={formData.message} className='border border-black/30 outline-none px-2 p-1' />
           </div>
-          <button type='submit' className='bg-sky-600 w-auto cursor-pointer p-1 text-white hover:scale-[1.02] transform ease-in-out duration-500'>Submit</button>
+          <button type='submit' className='bg-red-600 w-auto cursor-pointer p-1 text-white hover:scale-[1.02] transform ease-in-out duration-500'>Submit</button>
         </form>
       </div>
 

@@ -38,7 +38,7 @@ const UserAddtoCart = ({ product}) => {
     <div className='w-full flex flex-col items-center justify-center gap-2'>
       <div className='w-full flex flex-row items-center justify-between'>
         <div className='w-full'>
-          <p>Price: <span className='text-[8px] italic'>BDT</span> <span className='text-xl font-semibold'>{product.price}</span></p>
+          <p>Price: <span className='text-[8px] italic text-red-500'>BDT</span> <span className='text-xl font-semibold text-red-500'>{product?.price-product?.discount}</span></p>
         </div>
         <div className='w-full flex flex-row items-center justify-between'>
           <button className='text-xl font-semibold hover:bg-black/10 p-2 rounded-full cursor-pointer' onClick={decreaseQuantity}><IoIosArrowBack /></button>
@@ -46,7 +46,7 @@ const UserAddtoCart = ({ product}) => {
           <button className='text-xl font-semibold hover:bg-black/10 p-2 rounded-full cursor-pointer' onClick={increaseQuantity}><IoIosArrowForward /></button>
         </div>
       </div>
-      <button onClick={addtoCart} className='w-full flex flex-row items-center justify-center gap-2 bg-sky-300 hover:bg-black/70 text-white rounded-lg cursor-pointer'>Cart <CiShoppingCart className='text-xl' /></button>
+      <button onClick={addtoCart} className='w-full flex flex-row items-center justify-center gap-2 bg-red-300 hover:bg-black/70 text-white rounded-lg cursor-pointer'>Cart <CiShoppingCart className='text-xl' /></button>
     </div>
   )
 }

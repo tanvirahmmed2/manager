@@ -45,10 +45,12 @@ const AddProduct = () => {
         title: '',
         description: '',
         price: '',
+        unit:'',
         category: '',
         image: null,
         wholeSalePrice:'',
-        quantity:''
+        quantity:'',
+
 
     })
 
@@ -70,6 +72,9 @@ const AddProduct = () => {
             newData.append('price', formData.price)
             newData.append('category', formData.category)
             newData.append('image', formData.image)
+            newData.append('unit', formData.unit)
+            newData.append('wholeSalePrice', formData.wholeSalePrice)
+            newData.append('quantity', formData.quantity)
 
             const response = await axios.post('/api/product', newData, { withCredentials: true })
             toast.success(response.data.message)
@@ -104,9 +109,13 @@ const AddProduct = () => {
                 <select name="category" id="category" required value={formData.category} onChange={handleChange} className='w-full p-1 px-3 outline-none border-2 border-black/10 rounded-lg shadow-sm'>
                     <option value="">--Select--</option>
                     {siteData && siteData.categories.map((cat) => (
-                        <option value={cat} key={cat._id}>{cat}</option>
+                        <option value={cat} key={cat}>{cat}</option>
                     ))}
                 </select>
+            </div>
+            <div className='w-full flex flex-col gap-2'>
+                <label htmlFor="unit">Unit</label>
+                <input type="text" name='unit' id='unit' min={0} required value={formData.unit} onChange={handleChange} className='w-full p-1 px-3 outline-none border-2 border-black/10 rounded-lg shadow-sm' />
             </div>
             <div className='w-full flex flex-col gap-2'>
                 <label htmlFor="price">Price</label>

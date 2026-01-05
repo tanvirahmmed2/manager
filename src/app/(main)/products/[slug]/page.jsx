@@ -40,12 +40,17 @@ const SingleProduct = async ({ params }) => {
 
         <div className='flex-1 flex flex-col justify-center py-2'>
           <div className="space-y-4">
-            <h1 className='text-3xl md:text-4xl font-bold text-slate-900 leading-tight'>
+            <h1 className='text-base md:text-xl  font-bold text-slate-900 leading-tight'>
               {product.title}
             </h1>
-            <p className='text-slate-600 leading-relaxed text-lg'>
+            <p className='text-slate-600 leading-relaxed'>
               {product.description}
             </p>
+            <div className='w-full flex flex-row items-center justify-between font-semibold'>
+              <p>Category: {product.category}</p>
+              {product.isAvailable && <p>Quantity: {product.quantity}</p>}
+
+            </div>
 
             <div className="pt-4 border-t border-slate-100">
               <UserAddtoCart product={product} />

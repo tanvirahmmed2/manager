@@ -7,7 +7,7 @@ import { IoShareSocialOutline } from "react-icons/io5";
 const Footer = () => {
   const { siteData } = useCart()
   return (
-    <div className='w-full p-4 bg-blue-50 border-t-2 border-black/10 flex flex-col items-center justify-center gap-4'>
+    <div className='w-full p-4 bg-red-50 border-t-2 border-black/10 flex flex-col items-center justify-center gap-4'>
       <div className='w-full flex flex-row items-center justify-center gap-4'>
         <Link href={'/support'}>Support</Link>
 

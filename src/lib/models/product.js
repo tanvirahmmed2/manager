@@ -27,6 +27,11 @@ const productSchema = new mongoose.Schema({
         required: true,
         trim: true
     },
+    unit: {
+        type: String,
+        trim: true,
+        required: true,
+    },
     image: {
         type: String,
         trim: true,
