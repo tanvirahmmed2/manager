@@ -14,7 +14,7 @@ import { FaRegMessage } from "react-icons/fa6";
 import { MdOutlineLocalOffer } from "react-icons/md";
 import { RiGlobalLine } from "react-icons/ri";
 import { CiBoxList } from "react-icons/ci";
-import Logout from '../buttons/Logout';
+import Logout from '../buttons/Logout';import { IoMdSearch } from "react-icons/io";
 
 const ManageSidebar = () => {
   return (
@@ -22,6 +22,7 @@ const ManageSidebar = () => {
       <div className='w-full flex flex-col gap-2'>
         <Link href={'/manage'} className='w-auto flex flex-row items-center gap-3 cursor-pointer'><IoHomeOutline/> Home</Link>
         <Link href={'/manage/orders'} className='w-auto flex flex-row items-center gap-3 cursor-pointer'><AiOutlineUnorderedList/> Orders</Link>
+        <Link href={'/manage/search'} className='w-auto flex flex-row items-center gap-3 cursor-pointer'><IoMdSearch/> Order</Link>
         <Link href={'/manage/featured'} className='w-auto flex flex-row items-center gap-3 cursor-pointer'><MdOutlineLocalOffer/> Featured</Link>
         <Link href={'/manage/history'} className='w-auto flex flex-row items-center gap-3 cursor-pointer'><FaHistory/> History</Link>
         <Link href={'/manage/newproduct'} className='w-auto flex flex-row items-center gap-3 cursor-pointer'><FaRegEdit/>New Product</Link>
