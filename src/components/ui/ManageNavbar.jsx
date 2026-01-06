@@ -1,16 +1,13 @@
 
 import React from 'react'
-import Notification from '../buttons/Notification'
 import Link from 'next/link'
 
 const ManageNavbar = () => {
   return (
-    <div className='w-full border-b-2 h-14 border-black/10 flex flex-row items-center justify-between px-4'>
-        <h1 className='text-xl font-bold'>Management</h1>
+    <div className='w-full border-b-2 h-14 bg-emerald-100 border-black/10 flex flex-row items-center justify-between px-4'>
+        <Link href={'/manage'} className='text-xl font-bold'>Management</Link>
         <div className='flex flex-row items-center justify-center gap-4 h-14'>
-            <h1>Tanvir Ahmmed</h1>
             <Link href={'/profile'} >Profile</Link>
-            <Notification/>
         </div>
     </div>
   )

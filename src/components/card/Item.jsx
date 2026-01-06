@@ -10,8 +10,8 @@ const Item = ({item}) => {
       <h1 className='w-full text-center'>{item?.title}</h1>
       {
         item?.discount !==0 && item?.discount !==null? <div>
-          <p className='line-through text-sm'>{item?.price}</p>
-          <p className='font-semibold'>৳{item?.price-item?.discount}</p>
+          <p className='line-through text-sm'>৳{item?.price}</p>
+          <p className='font-semibold text-red-400'>৳{item?.price-item?.discount}</p>
         </div>:<p className='font-semibold text-red-400'>৳{item?.price}</p>
       }
     </motion.div>
