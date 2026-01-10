@@ -79,13 +79,9 @@ const Cart = () => {
             <div className='w-full flex flex-col gap-4'>
                 <div className="flex bg-gray-100 p-1 rounded-xl">
                     <p 
-                        onClick={() => handleMethodChange('pickup')} 
-                        className={`flex-1 text-center py-2 rounded-lg cursor-pointer transition-all font-medium ${data.delivery === 'pickup' ? 'bg-white shadow-sm text-black' : 'text-gray-500'}`}
+                       
+                        className={`flex-1 text-center py-2 rounded-lg cursor-pointer transition-all font-medium 'bg-white shadow-sm text-black'`}
                     > Pickup </p>
-                    <p 
-                        onClick={() => handleMethodChange('homedelivery')} 
-                        className={`flex-1 text-center py-2 rounded-lg cursor-pointer transition-all font-medium ${data.delivery === 'homedelivery' ? 'bg-white shadow-sm text-black' : 'text-gray-500'}`}
-                    > Homde Delivery </p>
                 </div>
 
                 <div className="grid gap-3">
@@ -100,12 +96,6 @@ const Cart = () => {
                     </div>
 
                     <div className="grid grid-cols-2 gap-3">
-                        {data.delivery === 'homedelivery' &&
-                            <div className='flex flex-col gap-1'>
-                                <label htmlFor="address" className="text-xs font-semibold text-gray-500 ml-1">Address</label>
-                                <input type="text" id='address' name='address' value={data.address} min={1} onChange={handleChange} className='w-full px-4 py-2 bg-gray-50 border border-gray-200 rounded-xl focus:ring-2 focus:ring-black outline-none transition-all' />
-                            </div>
-                        }
                         <div className='flex flex-col gap-1'>
                             <label htmlFor="payment" className="text-xs font-semibold text-gray-500 ml-1">PAYMENT</label>
                             <select name="payment" id="payment" value={data.payment} onChange={handleChange} className='w-full px-4 py-2 bg-gray-50 border border-gray-200 rounded-xl focus:ring-2 focus:ring-black outline-none appearance-none cursor-pointer'>
@@ -127,7 +117,7 @@ const Cart = () => {
                             <p className='text-[10px] text-gray-400 uppercase'>Qty: {item.quantity}</p>
                         </div>
                         <div className='flex items-center gap-4'>
-                            <p className="font-semibold text-gray-900">${item.price}</p>
+                            <p className="font-semibold text-gray-900">৳{item.price}</p>
                             <RemoveFromCart
                                 productId={item.productId}
                                 onRemove={fetchCart} 
@@ -140,19 +130,19 @@ const Cart = () => {
             <div className='w-full bg-gray-50 rounded-2xl p-4 flex flex-col gap-2 border border-gray-100'>
                 <div className='flex justify-between text-gray-600'>
                     <p>Sub Total</p>
-                    <p className="font-medium">${totals.subTotal.toFixed(2)}</p>
+                    <p className="font-medium">৳{totals.subTotal.toFixed(2)}</p>
                 </div>
                 <div className='flex justify-between text-gray-600'>
                     <p>Discount</p>
-                    <p className="font-medium">-${totals.discount.toFixed(2)}</p>
+                    <p className="font-medium">-৳{totals.discount.toFixed(2)}</p>
                 </div>
                 <div className='flex justify-between text-gray-600'>
                     <p>Tax</p>
-                    <p className="font-medium">${totals.tax.toFixed(2)}</p>
+                    <p className="font-medium">৳{totals.tax.toFixed(2)}</p>
                 </div>
                 <div className='flex justify-between items-center mt-2 pt-2 border-t border-gray-200'>
                     <p className="font-bold text-lg">Total</p>
-                    <p className="font-bold text-lg text-black">${totals.totlePrice.toFixed(2)}</p>
+                    <p className="font-bold text-lg text-black">৳{totals.totlePrice.toFixed(2)}</p>
                 </div>
             </div>
 
