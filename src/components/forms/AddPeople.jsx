@@ -62,7 +62,7 @@ const AddPeople = () => {
                 </div>
             </div>
 
-            <button type='submit' className='bg-black text-white p-1 px-4 rounded-lg shadow-sm cursor-pointer'>Add New Role</button>
+            <button type='submit' className='bg-sky-400 text-white p-1 px-4 rounded-lg shadow-sm cursor-pointer'>Add New Role</button>
         </form>
     )
 }

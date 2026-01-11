@@ -85,7 +85,7 @@ const Orderform = ({ cartItems }) => {
                 </div>
                 <div className='w-full flex flex-row items-center justify-between'>
                     <label htmlFor="name">Name</label>
-                    <input type="text" id='name' name='name' value={data.name} onChange={handleChange} className='px-3 border-2 border-black/10 rounded-lg outline-none' />
+                    <input type="text" id='name' name='name' value={data.name} onChange={handleChange} className='px-3 uppercase border-2 border-black/10 rounded-lg outline-none' />
                 </div>
                 <div className='w-full flex flex-row items-center justify-between'>
                     <label htmlFor="phone">Phone</label>

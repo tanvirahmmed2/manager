@@ -28,7 +28,6 @@ const ManageSidebar = () => {
         <Link href={'/manage'} className={`w-full flex flex-row items-center gap-3 cursor-pointer  px-4 p-1 ${isActive('/manage') ? ' text-black bg-white': ''}`}><IoHomeOutline/> Home</Link>
         <Link href={'/manage/orders'} className={`w-full flex flex-row items-center gap-3 cursor-pointer  px-4 p-1 ${isActive('/manage/orders') ? ' text-black bg-white': ''}`}><AiOutlineUnorderedList/> Orders</Link>
         <Link href={'/manage/search'} className={`w-full flex flex-row items-center gap-3 cursor-pointer  px-4 p-1 ${isActive('/manage/search') ? ' text-black bg-white': ''}`}><IoMdSearch/> Order</Link>
-        <Link href={'/manage/featured'} className={`w-full flex flex-row items-center gap-3 cursor-pointer  px-4 p-1 ${isActive('/manage/featured') ? ' text-black bg-white': ''}`}><MdOutlineLocalOffer/> Featured</Link>
         <Link href={'/manage/history'} className={`w-full flex flex-row items-center gap-3 cursor-pointer  px-4 p-1 ${isActive('/manage/history') ? ' text-black bg-white': ''}`}><FaHistory/> History</Link>
         <Link href={'/manage/newproduct'} className={`w-full flex flex-row items-center gap-3 cursor-pointer  px-4 p-1 ${isActive('/manage/newproduct') ? ' text-black bg-white': ''}`}><FaRegEdit/>New Product</Link>
         <Link href={'/manage/products'} className={`wfull  flex flex-row items-center gap-3 cursor-pointer px-4 p-1  ${isActive('/manage/products') ? ' text-black bg-white': ''}`}><CiBoxList/> Products</Link>

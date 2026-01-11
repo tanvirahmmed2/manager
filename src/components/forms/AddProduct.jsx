@@ -104,7 +104,7 @@ const AddProduct = () => {
                 <label htmlFor="image">Image</label>
                 <input type="file" accept='image/*' required name='image' onChange={handleChange} id='image' className='w-full p-1 px-3 outline-none border-2 border-black/10 rounded-lg shadow-sm' />
             </div>
-            <button type='submit' className='bg-black text-white p-1 px-4 rounded-lg shadow-sm cursor-pointer'>Submit</button>
+            <button type='submit' className='bg-sky-400 text-white p-1 px-4 rounded-lg shadow-sm cursor-pointer'>Submit</button>
 
         </form>
     )

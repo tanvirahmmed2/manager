@@ -32,7 +32,6 @@ const People = async() => {
                 <p>{user.role}</p>
                 <div className='w-auto flex flex-row items-center gap-4 text-xl'>
                   <BanUser id={user._id}/>
-                  <UpdateUser id={user._id}/>
                   <DeleteUser id={user._id}/>                  
                 </div>
               </div>
