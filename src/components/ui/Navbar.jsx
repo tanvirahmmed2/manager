@@ -8,8 +8,12 @@ import { RxCross2 } from "react-icons/rx";
 import Logout from '../buttons/Logout'
 import axios from 'axios'
 import { useCart } from '../context/Context'
+import { usePathname } from 'next/navigation';
 
 const Navbar = () => {
+  
+  const pathname = usePathname()
+  const isActive = (path) => pathname === path
   const { siteData } = useCart()
   const [isSidebar, setIsSidebar] = useState(false)
   const [isLogin, setIsLogin] = useState(false)
@@ -96,18 +100,18 @@ const Navbar = () => {
             )}
           </div>
           <div className='w-auto h-full hidden md:flex flex-row items-center justify-center gap-2'>
-            <Link href={'/'}>Home</Link>
-            <Link href={'/products'}>Products</Link>
-            {role === 'manager' && <Link href={'/manage'}>Manage</Link>}
-            {role === 'sales' && <Link href={'/sales'}>Sales</Link>}
+            <Link href={'/'} className={`${isActive('/') ? 'h-14 text-black px-6 bg-white flex items-center justify-center w-auto': ''}`}>Home</Link>
+            <Link href={'/products'} className={`${isActive('/products') ? 'h-14 text-black px-6 bg-white flex items-center justify-center w-auto': ''}`}>Products</Link>
+            {role === 'manager' && <Link href={'/manage'} className={`${isActive('/manage') ? 'h-14 text-black px-6 bg-white flex items-center justify-center w-auto': ''}`}>Manage</Link>}
+            {role === 'sales' && <Link href={'/sales'} className={`${isActive('/sales') ? 'h-14 text-black px-6 bg-white flex items-center justify-center w-auto': ''}`}>Sales</Link>}
             {isLogin ? (
               <div className='w-auto h-full flex flex-row items-center justify-center gap-2'>
-                <Link href={'/cart'}>Cart</Link>
+                <Link href={'/cart'} className={`${isActive('/cart') ? 'h-14 text-black px-6 bg-white flex items-center justify-center w-auto': ''}`}>Cart</Link>
                 <Logout />
-                <Link href={'/profile'}>Profile</Link>
+                <Link href={'/profile'} className={`${isActive('/profile') ? 'h-14 text-black px-6 bg-white flex items-center justify-center w-auto': ''}`}>Profile</Link>
               </div>
             ) : (
-              <Link href={'/login'}>Login</Link>
+              <Link href={'/login'} className={`${isActive('/login') ? 'h-14 text-black px-6 bg-white flex items-center justify-center w-auto': ''}`}>Login</Link>
             )}
           </div>
           <button onClick={() => setIsSidebar(!isSidebar)} className='text-xl block md:hidden'>
